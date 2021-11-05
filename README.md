@@ -39,16 +39,19 @@ Setup environment variable used by `pact-cli`.
 
 **Required** Pact Broker basic auth password
 
-## Example usage
+## Usage Example
 
-```
-uses: casavo/pact-can-i-deploy
-env:
-  PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
-  PACT_BROKER_PASSWORD: ${{ secrets.PACT_BROKER_PASSWORD }}
-  PACT_BROKER_USERNAME: ${{ secrets.PACT_BROKER_USERNAME }}
-with:
-  pacticipant: my-application
-  version: ${GITHUB_SHA}
-  to: staging
+```yml
+steps:
+  # ...
+  - uses: casavo/pact-can-i-deploy-action@v1
+    env:
+      PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
+      PACT_BROKER_PASSWORD: ${{ secrets.PACT_BROKER_PASSWORD }}
+      PACT_BROKER_USERNAME: ${{ secrets.PACT_BROKER_USERNAME }}
+    with:
+      pacticipant: my-application
+      version: ${GITHUB_SHA}
+      to: staging
+  # ...
 ```
