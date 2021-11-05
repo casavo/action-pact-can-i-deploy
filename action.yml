@@ -1,0 +1,24 @@
+name: Pact - Can I Deploy
+description: Ask pact broker if we can deploy on specified environment
+inputs:
+  pacticipant:
+    description: The pacticipant name, i.e. consumer name
+    required: true
+  version:
+    description: The pacticipant version
+    required: true
+  to:
+    description: The tag that represents the branch or environment of the integrated applications for which you want to check the verification result status.
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - broker
+    - can-i-deploy
+    - --pacticipant
+    - ${{ inputs.pacticipant }}
+    - --version
+    - ${{ inputs.version }}
+    - --to
+    - ${{ inputs.to }}
