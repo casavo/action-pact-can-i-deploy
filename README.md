@@ -44,7 +44,7 @@ Setup environment variable used by `pact-cli`.
 ```yml
 steps:
   # ...
-  - uses: casavo/pact-can-i-deploy-action@v1
+  - uses: casavo/pact-can-i-deploy-action@v2
     env:
       PACT_BROKER_BASE_URL: ${{ secrets.PACT_BROKER_BASE_URL }}
       PACT_BROKER_PASSWORD: ${{ secrets.PACT_BROKER_PASSWORD }}

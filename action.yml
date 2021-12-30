@@ -10,6 +10,9 @@ inputs:
   to:
     description: The tag that represents the branch or environment of the integrated applications for which you want to check the verification result status.
     required: true
+  tag:
+    description: Optionally specify a TAG to use the latest version with the specified tag.
+    required: false
 runs:
   using: docker
   image: Dockerfile
@@ -22,3 +25,5 @@ runs:
     - ${{ inputs.version }}
     - --to
     - ${{ inputs.to }}
+    - --latest
+    - ${{ input.tag }}
