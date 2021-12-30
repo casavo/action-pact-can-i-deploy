@@ -6,19 +6,20 @@ inputs:
     required: true
   version:
     description: The pacticipant version
-    required: true
+    required: false
+  tag:
+    description: The tag version
+    required: false
   to:
     description: The tag that represents the branch or environment of the integrated applications for which you want to check the verification result status.
     required: true
 runs:
-  using: docker
-  image: Dockerfile
-  args:
-    - broker
-    - can-i-deploy
-    - --pacticipant
-    - ${{ inputs.pacticipant }}
-    - --version
-    - ${{ inputs.version }}
-    - --to
-    - ${{ inputs.to }}
+  using: "composite"
+  steps:
+    - run: ${{ github.action_path }}/pact-can-i-deploy.sh
+      shell: bash
+      env:
+        PACTICIPANT: ${{ inputs.pacticipant }}
+        TAG: ${{ inputs.tag }}
+        TO: ${{ inputs.to }}
+        VERSION: ${{ inputs.version }}
