@@ -13,7 +13,7 @@ CMD_VERSION="--latest"
 docker run --rm \
     -e PACT_BROKER_USERNAME \
     -e PACT_BROKER_PASSWORD \
-    pactfoundation/pact-cli:latest \
+    pactfoundation/pact-cli:0.50.0.32 \
     broker can-i-deploy \
     --broker-base-url=${PACT_BROKER_BASE_URL} \
     --pacticipant=${PACTICIPANT} \
