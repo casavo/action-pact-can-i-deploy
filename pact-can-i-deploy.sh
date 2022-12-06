@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 if [ "$VERSION" != "" ] && [ "$TAG" != "" ]
 then
@@ -16,7 +16,7 @@ MISSING=()
 [ ! "$PACT_BROKER_PASSWORD" ] && MISSING+=("PACT_BROKER_PASSWORD")
 
 if [ ${#MISSING[@]} -gt 0 ]; then
-  echo "ERROR: The following environment variables åare not set:"
+  echo "ERROR: The following environment variables are not set:"
   printf '\t%s\n' "${MISSING[@]}"
   exit 1
 fi
