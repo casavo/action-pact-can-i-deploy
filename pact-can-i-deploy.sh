@@ -40,7 +40,7 @@ echo "
 docker run --rm \
     -e PACT_BROKER_USERNAME \
     -e PACT_BROKER_PASSWORD \
-    pactfoundation/pact-cli:0.50.0.32 \
+    pactfoundation/pact-cli:latest \
     broker can-i-deploy \
     --broker-base-url=${PACT_BROKER_BASE_URL} \
     --pacticipant=${PACTICIPANT} \
