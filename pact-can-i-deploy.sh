@@ -30,8 +30,11 @@ if [ ${#MISSING[@]} -gt 0 ]; then
   exit 1
 fi
 
+PACT_CLI_VERSION=$(docker run --rm pactfoundation/pact-cli:latest version)
+
 echo "
   PACT_BROKER_BASE_URL: '$PACT_BROKER_BASE_URL'
+  pact-cli version: '$PACT_CLI_VERSION'
   pacticipant: '$PACTICIPANT'
   version/tag: '$VERSION'
   to: $TO
