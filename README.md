@@ -10,18 +10,24 @@ $ pact broker can-i-deploy --pacticipant <PACTICIPANT> --version <COMMIT_SHA> --
 ## Inputs
 
 Action inputs are (hopefully) kept in sync with relation option of [`can-i-deploy` command](https://github.com/pact-foundation/pact_broker-client#can-i-deploy) from `pact-cli`
+
+> *NOTE* `version` and `tag` are mutually exclusive. If not set, the command executed will be `can-i-deploy --latest`
  
 ### `pacticipant`
 
 **Required** The pacticipant name.
 
-### `version`
-
-**Required** The pacticipant version.
-
 ### `to`
 
 **Required** The tag that represents the branch or environment of the integrated applications for which you want to check the verification result status.
+
+### `version`
+
+The pacticipant version. The command executed will be `can-i-deploy --version <version>`
+
+### `tag`
+
+The pacticipant tag. The command executed will be `can-i-deploy --latest <tag>`
 
 ## Environment Variables
 
